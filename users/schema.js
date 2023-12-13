@@ -6,9 +6,11 @@ const userSchema = new mongoose.Schema({
     email: String,
     lastName: String,
     dob: Date,
+    position: String,
+    theater: { type: mongoose.Schema.Types.ObjectId, ref: "theaters" },
     role: {
       type: String,
-      enum: ["STUDENT", "FACULTY", "ADMIN", "USER"],
+      enum: ["ADMIN", "USER"],
       default: "USER" },
   },
   { collection: "users" });
